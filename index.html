@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODE:Closers - Downloads & Patches</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f111a;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #1a1d2d;
+            width: 100%;
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 2px solid #3b82f6;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        p.subtitle {
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .container {
+            max-width: 800px;
+            width: 90%;
+            margin: 3rem auto;
+            flex-grow: 1;
+        }
+        .download-card {
+            background-color: #1e293b;
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+            transition: transform 0.2s;
+        }
+        .download-card:hover {
+            transform: translateY(-2px);
+            border-color: #475569;
+        }
+        .download-info h2 {
+            margin: 0 0 0.5rem 0;
+            color: #f8fafc;
+        }
+        .download-info p {
+            margin: 0.25rem 0;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        .download-info .date {
+            display: inline-block;
+            background-color: #334155;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        .download-btn {
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+            margin-left: 1.5rem;
+        }
+        .download-btn:hover {
+            background-color: #2563eb;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        footer {
+            width: 100%;
+            padding: 2rem 0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            background-color: #1a1d2d;
+            border-top: 1px solid #334155;
+        }
+        footer a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .download-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .download-btn {
+                margin-left: 0;
+                margin-top: 1.5rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>CODE:Closers</h1>
+        <p class="subtitle">Community Downloads & Manual Patches</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="download-card">
+            <div class="download-info">
+                <h2>Full Client</h2>
+                <span class="date">Updated: June 1, 2026</span>
+                <p>The complete game client. Download this if you are a new player or need a completely fresh installation.</p>
+            </div>
+            <!-- Replace the # below with your actual download link -->
+            <a href="https://drive.google.com/drive/folders/1hEIP8vP8_7zzGe6QZwaReQHZ51-BPMOv?usp=drive_link" class="download-btn">Download</a>
+        </div>
+
+        <div class="download-card">
+            <div class="download-info">
+                <h2>Manual Patch</h2>
+                <span class="date">Updated: June 2, 2026</span>
+                <p>Latest manual patch files. Extract these directly into your existing CODE:Closers game folder to update.</p>
+            </div>
+            <!-- Replace the # below with your actual download link -->
+            <a href="https://drive.google.com/drive/folders/1jKSuMqC5uimqLAPlZq2SsD__FOW7lAiL?usp=drive_link" class="download-btn">Download</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>This is an unofficial community mirror. For account management and official support, visit <a href="http://codeclosers.to/" target="_blank">codeclosers.to</a>.</p>
+    </footer>
+
+</body>
+</html>
