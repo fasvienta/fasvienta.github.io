@@ -4,270 +4,430 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ferry | Storage Infrastructure Administrator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f8fafc;
-            --text-color: #0f172a;
-            --primary-color: #0284c7;
-            --secondary-color: #e2e8f0;
-            --accent-color: #38bdf8;
-            --card-bg: #ffffff;
+            --primary-color: #0ea5e9;
+            --primary-hover: #0284c7;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --bg-dark: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        header {
-            background-color: var(--card-bg);
-            padding: 2rem 5%;
+        /* Interactive Background */
+        #particles-js {
             position: fixed;
-            width: 100%;
+            width: 100vw;
+            height: 100vh;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            left: 0;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        /* Glassmorphism Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         header h1 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 1.5rem;
+            list-style: none;
+            gap: 2rem;
         }
 
         nav a {
+            color: var(--text-main);
             text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
+            position: relative;
         }
 
-        nav a:hover {
-            color: var(--primary-color);
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
         }
 
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Layout & Typography */
         section {
-            padding: 6rem 5% 4rem;
+            min-height: 100vh;
+            padding: 8rem 5% 4rem;
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .hero {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            min-height: 80vh;
-            text-align: left;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #475569;
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #0369a1;
         }
 
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.6);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(14, 165, 233, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
         }
 
-        .skill-card {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 4px solid var(--accent-color);
+        .skills-grid .glass-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
 
+        /* Timeline / Projects */
         .timeline {
             display: flex;
             flex-direction: column;
             gap: 2rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--glass-border);
         }
 
         .timeline-item {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--primary-color);
+            position: relative;
+            padding-left: 5rem;
         }
 
-        .timeline-item h3 {
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1.6rem;
+            top: 2.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-color);
         }
 
         .timeline-item .date {
             font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 1rem;
-            font-weight: bold;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        footer {
+        /* Contact Section */
+        #contact {
             text-align: center;
-            padding: 2rem;
-            background-color: #0f172a;
-            color: white;
-            margin-top: 4rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .contact-links a:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Scroll Animation Classes */
+        .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-            .hero h2 {
-                font-size: 2.5rem;
-            }
+            header nav ul { display: none; }
+            .hero h2 { font-size: 2.5rem; }
+            .timeline::before { left: 1rem; }
+            .timeline-item { padding-left: 3rem; }
+            .timeline-item::before { left: 0.6rem; }
+            .contact-links { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+
+    <div id="particles-js"></div>
 
     <header>
         <h1>Ferry.</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills & Expertise</a></li>
-                <li><a href="#projects">Key Projects</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#projects">Operations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about" class="hero">
-        <h2>Storage Infrastructure Administrator</h2>
+    <section id="about" class="hero hidden">
+        <h2>Storage Infrastructure<br><span style="color: var(--primary-color);">Administrator</span></h2>
         <p>Specializing in enterprise-grade object storage systems, infrastructure optimization, and high-availability architecture. Dedicated to managing distributed storage clusters, securing backup workflows, and ensuring seamless integration for mission-critical IT operations.</p>
         <div>
-            <a href="#projects" class="btn">View My Work</a>
+            <a href="#projects" class="btn">Explore Operations</a>
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">Core Expertise</h2>
+    <section id="skills" class="hidden">
+        <h2 class="section-title">Core <span>Expertise</span></h2>
         <div class="skills-grid">
-            <div class="skill-card">
+            <div class="glass-card">
                 <h3>Enterprise Object Storage</h3>
-                <p>Namespace configuration, high-availability clustering, and geo-replicated node management.</p>
+                <p>Namespace configuration, high-availability clustering, and geo-replicated node management for massive data footprints.</p>
             </div>
-            <div class="skill-card">
-                <h3>Protocol Management</h3>
-                <p>Advanced routing and management of S3 and NFS protocols across diverse storage tiers.</p>
-            </div>
-            <div class="skill-card">
+            <div class="glass-card">
                 <h3>Traffic Distribution</h3>
-                <p>Layer 4/7 Load Balancer VIP configuration to optimize throughput, redundancy, and client connectivity.</p>
+                <p>Layer 4/7 Load Balancer VIP configuration to optimize throughput, redundancy, and secure client connectivity.</p>
             </div>
-            <div class="skill-card">
+            <div class="glass-card">
                 <h3>Data Resilience</h3>
-                <p>Enterprise backup and immutable archival workload migration, alongside performance tuning.</p>
+                <p>Enterprise backup integration, immutable archival workload migration, and critical performance tuning.</p>
             </div>
-            <div class="skill-card">
+            <div class="glass-card">
+                <h3>Protocol Management</h3>
+                <p>Advanced network routing and lifecycle management of S3 and NFS protocols across diverse storage tiers.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Interactive Media Engineering</h3>
+                <p>Deployment of high-performance computing pipelines, including spatial audio optimization and 360-degree immersive web environments.</p>
+            </div>
+            <div class="glass-card">
                 <h3>Datacenter Operations</h3>
-                <p>Preventative maintenance, hardware lifecycle management, and critical incident response.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Compute Engineering</h3>
-                <p>High-performance computing hardware analysis and optimization for specialized workflows.</p>
+                <p>Preventative hardware maintenance, thermal capacity management, and rapid critical incident response.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2 class="section-title">Key Projects & Operations</h2>
+    <section id="projects" class="hidden">
+        <h2 class="section-title">Key <span>Operations</span></h2>
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-item glass-card">
+                <div class="date">Q2 2026</div>
                 <h3>Geo-Replicated Storage Maintenance & Auditing</h3>
-                <div class="date">Q2 2026</div>
-                <p>Directed comprehensive preventative and corrective maintenance cycles for major, multi-site enterprise storage clusters. Compiled detailed executive summary reports and executed stringent health checks for primary and secondary datacenters to ensure uninterrupted uptime.</p>
+                <p>Directed comprehensive preventative and corrective maintenance cycles for major, multi-site enterprise storage clusters. Compiled detailed executive reports and executed stringent health checks to ensure uninterrupted uptime.</p>
             </div>
-
-            <div class="timeline-item">
+            <div class="timeline-item glass-card">
+                <div class="date">Q2 2026</div>
                 <h3>Archival Workload Migration & Optimization</h3>
-                <div class="date">Q2 2026</div>
-                <p>Successfully re-architected the network path for heavy archival backup workflows. Migrated traffic from direct storage node endpoints to load-balanced Virtual IPs (VIPs), resulting in a massive increase in throughput and eliminating localized network bottlenecks.</p>
+                <p>Re-architected the network path for heavy archival backup workflows. Migrated traffic from direct storage node endpoints to load-balanced Virtual IPs (VIPs), significantly increasing throughput and eliminating localized bottlenecks.</p>
             </div>
-
-            <div class="timeline-item">
-                <h3>Critical Infrastructure Emergency Response</h3>
+            <div class="timeline-item glass-card">
                 <div class="date">Q1 2026</div>
-                <p>Managed a severe datacenter thermal emergency by orchestrating the rapid, graceful shutdown of distributed object storage nodes and core network switches. Prevented catastrophic hardware failure and ensured 100% data integrity upon successful facility recovery.</p>
+                <h3>Critical Infrastructure Emergency Response</h3>
+                <p>Managed a severe datacenter thermal emergency by orchestrating the rapid, graceful shutdown of distributed object storage nodes and core network switches. Prevented hardware failure and ensured 100% data integrity upon facility recovery.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p>Currently open for professional networking and technical discussions regarding enterprise storage architecture.</p>
-        <br>
-        <p>
-            <strong>Email:</strong> your.email@example.com <br>
-            <strong>GitHub:</strong> <a href="https://github.com/yourusername" style="color: var(--primary-color);">github.com/yourusername</a> <br>
-            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" style="color: var(--primary-color);">linkedin.com/in/yourprofile</a>
+    <section id="contact" class="hidden">
+        <h2 class="section-title">Initiate <span>Connection</span></h2>
+        <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+            Currently open for professional networking and technical discussions regarding enterprise storage architecture and infrastructure engineering.
         </p>
+        <div class="contact-links">
+            <a href="mailto:your.email@example.com">Email Me</a>
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Ferry. All rights reserved.</p>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Initialize Particles.js with a "connected infrastructure network" theme
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#0ea5e9" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0ea5e9",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1.5,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 200, "line_linked": { "opacity": 0.6 } },
+                    "push": { "particles_nb": 3 }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Intersection Observer for Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden').forEach((element) => {
+            observer.observe(element);
         });
     </script>
 </body>
