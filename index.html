@@ -3,142 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CODE:Closers - Downloads & Patches</title>
-    <link rel="icon" type="image/png" href="https://cdn.discordapp.com/avatars/295896107958140929/ea69dc635637b4684eeb4630f135db95.png">
-    <!-- 1. The colored bar on the left side of the embed -->
-    <meta name="theme-color" content="#3b82f6"> 
-    
-    <!-- 2. The Title of the embed -->
-    <meta property="og:title" content="CODE:Closers - Downloads & Patches">
-    
-    <!-- 3. The main text/description inside the embed -->
-    <meta property="og:description" content="Download the latest Full Client for CODE:Closers.">
-    
-    <!-- 4. The URL of your website -->
-    <meta property="og:url" content="https://github.com/fasvienta/fasvienta.github.io">
-    
-    <!-- 5. Defines the type of content -->
-    <meta property="og:type" content="website">
-    
-    <!-- Optional: Add an image thumbnail to the embed -->
-    <!-- <meta property="og:image" content="https://cdn.discordapp.com/avatars/295896107958140929/ea69dc635637b4684eeb4630f135db95.png"> -->
+    <title>Ferry | S3 Storage Administrator</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0f111a;
-            color: #e2e8f0;
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --primary-color: #0284c7;
+            --secondary-color: #e2e8f0;
+            --accent-color: #38bdf8;
+            --card-bg: #ffffff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
         header {
-            background-color: #1a1d2d;
+            background-color: var(--card-bg);
+            padding: 2rem 5%;
+            position: fixed;
             width: 100%;
-            padding: 2rem 0;
-            text-align: center;
-            border-bottom: 2px solid #3b82f6;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        h1 {
-            margin: 0;
-            color: #ffffff;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-        }
-        p.subtitle {
-            color: #94a3b8;
-            margin-top: 0.5rem;
-            font-size: 1.1rem;
-        }
-        .container {
-            max-width: 800px;
-            width: 90%;
-            margin: 3rem auto;
-            flex-grow: 1;
-        }
-        .download-card {
-            background-color: #1e293b;
-            border-radius: 8px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 1.5rem;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            border: 1px solid #334155;
-            transition: transform 0.2s;
         }
-        .download-card:hover {
-            transform: translateY(-2px);
-            border-color: #475569;
+
+        header h1 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
         }
-        .download-info h2 {
-            margin: 0 0 0.5rem 0;
-            color: #f8fafc;
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
         }
-        .download-info p {
-            margin: 0.25rem 0;
-            color: #94a3b8;
-            font-size: 0.95rem;
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
-        .download-info .date {
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 6rem 5% 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: left;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #475569;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
             display: inline-block;
-            background-color: #334155;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            margin-bottom: 0.5rem;
-        }
-        .download-btn {
-            background-color: #3b82f6;
+            background-color: var(--primary-color);
             color: white;
-            text-decoration: none;
             padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: background-color 0.2s, box-shadow 0.2s;
-            white-space: nowrap;
-            margin-left: 1.5rem;
-        }
-        .download-btn:hover {
-            background-color: #2563eb;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-        }
-        footer {
-            width: 100%;
-            padding: 2rem 0;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.85rem;
-            background-color: #1a1d2d;
-            border-top: 1px solid #334155;
-        }
-        footer a {
-            color: #3b82f6;
             text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
-        footer a:hover {
-            text-decoration: underline;
+
+        .btn:hover {
+            background-color: #0369a1;
         }
-        
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            .download-card {
-                flex-direction: column;
-                text-align: center;
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .timeline-item {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .timeline-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .timeline-item .date {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #0f172a;
+            color: white;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Can be replaced with a hamburger menu later */
             }
-            .download-btn {
-                margin-left: 0;
-                margin-top: 1.5rem;
-                width: 100%;
-                box-sizing: border-box;
+            .hero h2 {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -146,37 +173,103 @@
 <body>
 
     <header>
-        <h1>CODE:Closers</h1>
-        <p class="subtitle">Community Downloads & Manual Patches</p>
+        <h1>Ferry.</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills & Expertise</a></li>
+                <li><a href="#projects">Key Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container">
-        
-        <div class="download-card">
-            <div class="download-info">
-                <h2>Full Client</h2>
-                <span class="date">Updated: June 1, 2026</span>
-                <p>The complete game client. Download this if you are a new player or need a completely fresh installation.</p>
-            </div>
-            <!-- Replace the # below with your actual download link -->
-            <a href="https://drive.google.com/drive/folders/1hEIP8vP8_7zzGe6QZwaReQHZ51-BPMOv?usp=drive_link" class="download-btn">Download</a>
+    <section id="about" class="hero">
+        <h2>S3 Storage Administrator</h2>
+        <p>Specializing in enterprise object storage systems, infrastructure optimization, and disaster recovery. Based in Indonesia, managing high-availability clusters and ensuring seamless integrations for mission-critical operations.</p>
+        <div>
+            <a href="#projects" class="btn">View My Work</a>
         </div>
+    </section>
 
-        <div class="download-card">
-            <div class="download-info">
-                <h2>Manual Patch</h2>
-                <span class="date">Updated: June 2, 2026</span>
-                <p>Latest manual patch files. Extract these directly into your existing CODE:Closers game folder to update.</p>
+    <section id="skills">
+        <h2 class="section-title">Core Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Dell ECS EX500</h3>
+                <p>Namespace configuration, high-availability architecture, and node management.</p>
             </div>
-            <!-- Replace the # below with your actual download link -->
-            <a href="https://drive.google.com/drive/folders/1jKSuMqC5uimqLAPlZq2SsD__FOW7lAiL?usp=drive_link" class="download-btn">Download</a>
+            <div class="skill-card">
+                <h3>Protocol Management</h3>
+                <p>Advanced routing and management of S3 and NFS protocols across storage tiers.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Load Balancing</h3>
+                <p>KEMP Load Balancer VIP configuration to optimize throughput and redundancy.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Data Archival</h3>
+                <p>Rubrik archival workload migration and performance tuning.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Hardware Maintenance</h3>
+                <p>Preventative maintenance, thermal management, and emergency recovery.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Media Engineering</h3>
+                <p>High-performance computing hardware and 360-degree video player development.</p>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <section id="projects">
+        <h2 class="section-title">Key Projects & Operations</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Preventative & Corrective Maintenance Leadership</h3>
+                <div class="date">May 2026</div>
+                <p>Executed comprehensive formal maintenance cycles for major storage sites, culminating in detailed executive summary reports and health checks for Trunojoyo and Gandul locations.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Rubrik Archival Workload Migration</h3>
+                <div class="date">April 2026</div>
+                <p>Successfully migrated archival workloads from direct storage node connections to a KEMP Load Balancer VIP, significantly increasing throughput and network efficiency.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Thermal Emergency Response & Recovery</h3>
+                <div class="date">March 2026</div>
+                <p>Managed a data center thermal event by orchestrating the graceful shutdown of Dell ECS nodes and network switches, preventing hardware failure and ensuring complete data integrity upon recovery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>Currently open for professional networking and technical discussions regarding enterprise storage architecture.</p>
+        <br>
+        <p>
+            <strong>Email:</strong> your.email@example.com <br>
+            <strong>GitHub:</strong> <a href="https://github.com/yourusername" style="color: var(--primary-color);">github.com/yourusername</a> <br>
+            <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" style="color: var(--primary-color);">linkedin.com/in/yourprofile</a>
+        </p>
+    </section>
 
     <footer>
-        <p>This is an unofficial community mirror. For account management and official support, visit <a href="http://codeclosers.to/" target="_blank">codeclosers.to</a>.</p>
+        <p>&copy; 2026 Ferry. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
